@@ -1,6 +1,6 @@
 var express = require("express");
-
 var app = express();
+const routes = require("./routes");
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -14,9 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Root get route
-app.get("/", function (req, res) {
-
-})
+app.use('/', routes);
 
 // app.listen(PORT, function(){
 //     console.log(`Listening on port: ${PORT}`);
