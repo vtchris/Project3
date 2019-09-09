@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 
 class Login extends Component {
   state = {
@@ -9,6 +10,19 @@ class Login extends Component {
     const { name, value } = e.target;
 
     this.setState({ [name]: value });
+  };
+  handleFormSubmit = e => {
+    e.preventDefault();
+    
+    if (this.state.email && this.state.password) {
+      API.authenticateUser({        
+        email: this.state.email,
+        password: this.state.password
+      }).then(res => {
+        window.location.replace("/home");
+      })
+        .catch(err => console.log(err));
+    }
   };
   render() {
     return (
@@ -31,7 +45,7 @@ class Login extends Component {
             ></input>
           </li>
           <li>
-            <button type="submit">Submit</button>
+            <button type="submit" onClick={this.handleFormSubmit}>Submit</button>
           </li>
         </ul>
       </div>

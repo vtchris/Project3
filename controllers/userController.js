@@ -1,6 +1,10 @@
 const db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = {
+    authenticate: function(req,res){
+
+    },
     create: function(req, res) {
         db.User
           .create(req.body)
