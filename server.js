@@ -1,24 +1,28 @@
-var express = require("express");
-var app = express();
+//dependencies
+const express = require("express");
+const passport = require("./config/passport");
 const routes = require("./routes");
+const session = require("express-session");
+
+const app = express();
 
 // Set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
-var db = require("./models");
+const db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: process.env.SESSION_SECRET || "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Root get route
 app.use('/', routes);
-
-// app.listen(PORT, function(){
-//     console.log(`Listening on port: ${PORT}`);
-// })
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
