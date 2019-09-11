@@ -1,0 +1,16 @@
+nav.navbar.navbar-default {
+  margin-bottom: 0;
+}
+
+.navbar-brand {
+  font-family: 'Rochester', cursive;
+  font-size: 25px;
+}
+
+.nav-link {
+  color: #aaaaaa !important;
+}
+
+nav-link active {
+  color: #aaaaaa !important;
+}

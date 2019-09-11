@@ -1,0 +1,15 @@
+.card-body {
+    text-align: left;
+}
+
+.center {
+    margin-top: 50px;
+    width: 358px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body {
+    background-color: blueviolet;
+}
