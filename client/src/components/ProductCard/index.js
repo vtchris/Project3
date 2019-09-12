@@ -1,29 +1,27 @@
 import React from "react";
 import "./style.css";
+import { Row, Col } from "reactstrap";
 
 function ProductCard(props) {
   return (
-    <div className="card">
-      <div className="img-container">
-        {/* <img alt={props.name} src={props.image} /> */}
-        <img alt="Apple Mouse" src="https://firebasestorage.googleapis.com/v0/b/friendfinder-ae18a.appspot.com/o/Wish%20List%20Products%2Fapplemouse.jpg?alt=media&token=de079a06-63bf-4b82-8907-5ffbe1956469" />
-
+    <Col className='col-xs-12 col-sm-6 col-md-4'>
+      <div className="card">
+        <div className="img-container">
+          <img alt={props.product.name} src={props.product.image} />
+          
+        </div>
+        <div className="content">
+          <p>
+              <strong>Name:</strong> {props.product.name}
+            
+          </p>
+              {props.product.price} 
+          <br />
+          <button type="button" className="btn btn-secondary">Add to Wish List</button>
+        </div>
       </div>
-      <div className="content">
-        <p>
-            {/* <strong>Name:</strong> {props.name} */}
-            <strong>Apple Mouse</strong> 
-        </p>
-            {/* <strong>Occupation:</strong> {props.occupation} */}
-            $59.99 
-        <br />
-        {/* <span onClick={() => props.removeFriend(props.id)} className="remove"></span> */}
-        <button type="button" className="btn btn-secondary">Add to Wish List</button>
-      </div>
-      <span onClick={() => props.removeFriend(props.id)} className="remove"></span>
-    </div>
 
-    
+    </Col>
   );
 }
 
