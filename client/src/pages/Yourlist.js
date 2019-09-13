@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import ProductCard from "../components/ProductCard";
-import API from "../utils/API";
+import products from "../productlist.json";  //since this is my list we need to change this from looping through the json file to looping through the items in the db
+import { Row } from "reactstrap";
 
 class Yourlist extends Component {
 
@@ -16,10 +17,11 @@ class Yourlist extends Component {
           <h2>Buy Something Special</h2>
         </Hero>
         <Container style={{ marginTop: 50 }}>
-
-          <ProductCard
-          />
-
+        <Row>
+          {products.map((product) => {
+              return(<ProductCard key={product.id} product={product} />)
+            })}
+        </Row>
         </Container>
       </div>
     );
