@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const path = require("path");
+const t = require("../../client/build/")
 
 router.get("/enroll", function(req, res) {
     // If the user already has an account send them to the members page
@@ -11,7 +12,7 @@ router.get("/enroll", function(req, res) {
     res.sendFile(path.join(__dirname, "../../client/build/index.html"));
   });
   router.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../../client/src/index.html"));
+    res.sendFile(path.join(__dirname, "../../client/src/index.js"));
   });
  
 
