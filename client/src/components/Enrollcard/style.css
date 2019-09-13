@@ -10,3 +10,6 @@
     margin-right: auto;
 }
 
+.border-secondary {
+border-color: #dfdfdf !important;
+}

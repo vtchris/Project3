@@ -39,6 +39,14 @@ function Navbar() {
               Log In
             </Link>
           </li>
+          <li className="nav-item pl-2">
+            <Link
+              to="/enroll"
+              className={window.location.pathname === "/enroll" ? "nav-link active" : "nav-link"}
+            >
+              Enroll
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
